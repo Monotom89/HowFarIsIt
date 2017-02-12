@@ -4,6 +4,8 @@ KEIN EXTRA OPTIONS OBJEKT- da kann man google methoden nicht verwenden, weil sie
 
 2017-02-09 Erster laufender Built. To Do: Marker nach jedem geocoding löschen, code aufräumen, autofahrzeit hinzufügen, STYLING!!
 
+2017-02-12 HTML Styling.
+
 */
 
 //map init
