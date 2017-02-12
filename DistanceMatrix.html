@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>How Far Is It?</title>
+    <link href="DistanceMatrix.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs1cka1ZslT2gQ-Xx7uWSG-uNPWSKiINs&signed_in=true&callback=initMap"
+          async defer></script> <!-- API-Aufruf -->
+  </head>
+  <body>
+    <!-- Banner und Logo-->
+    <div class="banner">
+      <div id="banner-content">
+        <h1>HOW FAR </br> IS IT?</h1>
+      </div>
+    </div>
+
+    </br>
+    </br>
+
+
+    <div class="contentcontainer">
+
+      <!-- Karte -->
+      <div id="map">
+        </div> <!-- end of map -->
+
+      </br>
+
+      <!-- Erklärtext -->
+      <div class="introduction">
+        <p>
+        Du hast eine neue Wohnung im Auge, möchtest ein Haus kaufen oder eine Location für dein neues Büro finden?
+        "How Far Is St" berechnet für dich, wie lange du von einem Ort zu deinen Freunden, zu deinen Eltern, zur Schule, zur Arbeit, zum Zahnarzt
+        oder zum Einkaufen brauchst. Mit den öffentlichen Verkehrsmitteln, mit dem Rad oder zu Fuß.
+        Gib einfach die Start-Adresse, die Ziel-Adressen, sowie die Bezeichnung der Orte ein, zu denen die Wegzeit berechnet werden soll.
+        Mit Klick auf "Neue Zeile" kannst du weitere Ziel-Adressen hinzufügen.
+        </p>
+      </div> <!-- end of introduction -->
+
+      </br>
+      </br>
+
+
+      <!-- Interaktionsbereich, enthält Eingabe- und Ausgabebereich -->
+      <div class="interaction">
+
+        <!--Eingabebereich links -->
+        <div class="input">
+          <p>Start-Adresse</p>
+
+          <div id="eingabeOrigin">
+            <input id="origin" type="text" value="Muenchen">
+          </div>
+
+          </br>
+
+          <div id="eingabeDest">
+            <table id="tableDest">
+              <tr>
+                <td><p>Bezeichnung</p></td>
+                <td><p>Ziel-Adresse</p></td>
+              </tr>
+            </table>
+
+            </br>
+
+            <input id="neueZeile" type="button" value="neue Zeile"> <!-- wenn Knopf gedrückt, neue Zeile erstellen-->
+            <input id="submitDest" type="button" value="ab gehts!">
+          </div> <!-- end of eingabeOrigin -->
+        </div> <!-- end of input -->
+
+        <!-- Ausgabebereich rechts -->
+        <div class="output">
+          <div class="OutputContainer">
+            <h3>Mit den Öffis </h3>
+            <div id="Transit"></div>
+            </br>
+          </div>
+
+          </br>
+
+          <div class="OutputContainer">
+            <h3>Mit dem Radl</h3>
+            <div id="Bike"></div>
+            </br>
+          </div>
+
+          </br>
+
+          <div class="OutputContainer">
+            <h3>Zu Fuss</h3>
+            <div id="Walking"></div>
+            </br>
+          </div>
+
+        </div> <!-- end of output -->
+      </div> <!-- end of interaction -->
+
+    </div> <!-- end of contentcontainer -->
+
+
+  <script type="text/javascript" src="DistanceMatrix.js"></script> <!-- link zur externen JS -->
+  </body>
+</html>
