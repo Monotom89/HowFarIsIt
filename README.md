@@ -18,4 +18,4 @@ To Do
 • Add logo above title
 • Parallax scrolling, banner in the background
 • host site
-
+• texts
