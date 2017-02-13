@@ -21,4 +21,4 @@ To Do
 - texts
 - Set placeholder attribute to input text
 - show one line when site is loading
-- set higher zoom level when only one destination is defined
+- set higher zoom level when only one destination is defined (add origin pin to markerArray?)
