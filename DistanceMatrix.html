@@ -11,8 +11,9 @@
   <body>
     <!-- Banner und Logo-->
     <div class="banner">
+      <img src="Arrows.png" id="logo">
       <div id="banner-content">
-        <h1>HOW FAR </br> IS IT?</h1>
+        <h1>How Far Is It?</h1>
       </div>
     </div>
 
@@ -24,7 +25,7 @@
 
       <!-- Erklärtext -->
       <div class="introduction">
-        <p>
+        <p id="introductionText">
         Du hast eine neue Wohnung im Auge, möchtest ein Haus kaufen oder eine Location für dein neues Büro finden?
         "How Far Is St" berechnet für dich, wie lange du von einem Ort zu deinen Freunden, zu deinen Eltern, zur Schule, zur Arbeit, zum Zahnarzt
         oder zum Einkaufen brauchst. Mit den öffentlichen Verkehrsmitteln, mit dem Rad oder zu Fuß.
@@ -37,25 +38,30 @@
 
       <!--Eingabebereich -->
       <div class="input">
-        <p>Start-Adresse</p>
 
-        <div id="eingabeOrigin">
-          <input id="origin" type="text" value="Muenchen">
-        </div>
+        <table class="OriginTable">
+          <tr class="OriginRow" style="height:9px">
+            <td id="OriginLabel"><p id="OriginLabelText">Start-Adresse</p></td>
+            <td><input id="origin" type="text" value="Muenchen"></td>
+          </tr>
+        </table>
 
         </br>
 
         <div id="eingabeDest">
           <table id="tableDest">
             <tr>
-              <td><p>Bezeichnung</p></td>
-              <td><p>Ziel-Adresse</p></td>
+
             </tr>
           </table>
 
+
+          <input id="neueZeile" type="button" value="+"> <!-- wenn Knopf gedrückt, neue Zeile erstellen-->
+          </br>
+          </br>
           </br>
 
-          <input id="neueZeile" type="button" value="neue Zeile"> <!-- wenn Knopf gedrückt, neue Zeile erstellen-->
+
         </div> <!-- end of eingabeOrigin -->
       </div> <!-- end of input -->
 
@@ -70,13 +76,13 @@
         <!-- Ausgabebereich rechts -->
         <div class="output">
 
-          <input id="submitDest" type="button" value="ab gehts!"> <!-- Submit Button -->
+          <input id="submitDest" type="button" value="Auf gehts!"> <!-- Submit Button -->
 
           </br>
           </br>
 
           <div class="OutputContainer">
-            <h3>Mit den Öffis </h3>
+            <h3>Mit den öffentlichen Verkehrsmitteln</h3>
             <div id="Transit"></div>
             </br>
           </div>
@@ -84,7 +90,7 @@
           </br>
 
           <div class="OutputContainer">
-            <h3>Mit dem Radl</h3>
+            <h3>Mit dem Rad</h3>
             <div id="Bike"></div>
             </br>
           </div>

@@ -25,7 +25,7 @@ function initMap()
   map = new google.maps.Map(document.getElementById('map'), mapOptions); //bekommt den Div in der HTMl und Optionen
 
   console.log('Karte steht');
-
+  addRow("tableDest")
 
 //geocodierungsbutton Origon
   var geocoder = new google.maps.Geocoder();
@@ -176,7 +176,7 @@ function geocodeAddress(geocoder, resultsMap)
                           showGeocodedAddressOnMap(true));
                       outputDiv.innerHTML +='<br>' + "<span style='font-family: Ubuntu; color:#FFFFFF; padding: 0px;'>" + 'Zu '+ destinations[j][0] +
                           ': ' + results[j].distance.text + ' in ' +
-                          results[j].duration.text + "</span>";
+                          "<span style='color:#FFA13E;'>" + results[j].duration.text + "</span>" + "</span>";
                     }
                   }
                 }
@@ -227,7 +227,7 @@ function geocodeAddress(geocoder, resultsMap)
                             showGeocodedAddressOnMap(true));
                         outputDiv.innerHTML += '<br>' + "<span style='font-family: Ubuntu; color:#FFFFFF; padding: 0px;'>" + 'Zu '+ destinations[j][0] +
                             ': ' + results[j].distance.text + ' in ' +
-                            results[j].duration.text + "</span>";
+                            "<span style='color:#FFA13E;'>" + results[j].duration.text + "</span>" + "</span>";
 
                           }
                         }
@@ -279,7 +279,7 @@ function geocodeAddress(geocoder, resultsMap)
                                   showGeocodedAddressOnMap(true));
                               outputDiv.innerHTML += '<br>' + "<span style='font-family: Ubuntu; color:#FFFFFF; padding: 0px;'>"  + 'Zu '+ destinations[j][0] +
                                   ': ' + results[j].distance.text + ' in ' +
-                                  results[j].duration.text + "</span>";
+                                  "<span style='color:#FFA13E;'>" + results[j].duration.text + "</span>" + "</span>";
 
                                 }
                               }
@@ -306,8 +306,8 @@ function addRow(Table) //jede Zelle wird mit Matrizenindizes in der ID benannt
   var row = table.insertRow(RowCounter+1);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
-  cell1.innerHTML = "<input id='" + RowCounter +  "1' type='textbox' value='Pizzeria'>";
-  cell2.innerHTML = "<input id='" + RowCounter +  "2' type='textbox' value='Schedelstrasse 12, Muenchen'>";
+  cell1.innerHTML = "<input id='" + RowCounter +  "1' type='text' placeholder='Bezeichnung'>";
+  cell2.innerHTML = "<input id='" + RowCounter +  "2' type='text' placeholder='Zieladresse'>";
   RowCounter++;
   console.log('Anzahl Zeilen:' + RowCounter);
 }
