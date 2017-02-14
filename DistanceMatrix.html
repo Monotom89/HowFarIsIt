@@ -22,12 +22,6 @@
 
     <div class="contentcontainer">
 
-      <!-- Karte -->
-      <div id="map">
-        </div> <!-- end of map -->
-
-      </br>
-
       <!-- Erklärtext -->
       <div class="introduction">
         <p>
@@ -40,39 +34,47 @@
       </div> <!-- end of introduction -->
 
       </br>
-      </br>
 
+      <!--Eingabebereich -->
+      <div class="input">
+        <p>Start-Adresse</p>
 
-      <!-- Interaktionsbereich, enthält Eingabe- und Ausgabebereich -->
-      <div class="interaction">
+        <div id="eingabeOrigin">
+          <input id="origin" type="text" value="Muenchen">
+        </div>
 
-        <!--Eingabebereich links -->
-        <div class="input">
-          <p>Start-Adresse</p>
+        </br>
 
-          <div id="eingabeOrigin">
-            <input id="origin" type="text" value="Muenchen">
-          </div>
+        <div id="eingabeDest">
+          <table id="tableDest">
+            <tr>
+              <td><p>Bezeichnung</p></td>
+              <td><p>Ziel-Adresse</p></td>
+            </tr>
+          </table>
 
           </br>
 
-          <div id="eingabeDest">
-            <table id="tableDest">
-              <tr>
-                <td><p>Bezeichnung</p></td>
-                <td><p>Ziel-Adresse</p></td>
-              </tr>
-            </table>
+          <input id="neueZeile" type="button" value="neue Zeile"> <!-- wenn Knopf gedrückt, neue Zeile erstellen-->
+        </div> <!-- end of eingabeOrigin -->
+      </div> <!-- end of input -->
 
-            </br>
 
-            <input id="neueZeile" type="button" value="neue Zeile"> <!-- wenn Knopf gedrückt, neue Zeile erstellen-->
-            <input id="submitDest" type="button" value="ab gehts!">
-          </div> <!-- end of eingabeOrigin -->
-        </div> <!-- end of input -->
+      <!-- Interaktionsbereich, enthält Eingabe- und Ausgabebereich -->
+      <div class="submissionContainer">
+
+        <!-- Karte -->
+        <div id="map">
+        </div> <!-- end of map -->
 
         <!-- Ausgabebereich rechts -->
         <div class="output">
+
+          <input id="submitDest" type="button" value="ab gehts!"> <!-- Submit Button -->
+
+          </br>
+          </br>
+
           <div class="OutputContainer">
             <h3>Mit den Öffis </h3>
             <div id="Transit"></div>
@@ -96,7 +98,7 @@
           </div>
 
         </div> <!-- end of output -->
-      </div> <!-- end of interaction -->
+      </div> <!-- end of submissionContainer -->
 
     </div> <!-- end of contentcontainer -->
 

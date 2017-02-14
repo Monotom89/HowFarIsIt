@@ -78,8 +78,6 @@ input[type=textbox] {
   background-image: linear-gradient(0deg, rgb(187, 80, 89), rgb(249, 106, 118));
   box-shadow: 0px 6px 10px 0px rgb(56, 84, 115);
   border: none;
-  float: left;
-
 }
 
 #submitDest {
@@ -94,7 +92,6 @@ input[type=textbox] {
   background-image: linear-gradient(0deg, rgb(191, 122,  47), rgb(255, 162, 62));
   box-shadow: 0px 6px 10px 0px rgb(56, 84, 115);
   border: none;
-  float: right;
 
 }
 
@@ -120,7 +117,7 @@ input[type=textbox] {
 
 .input {
   width: 490px;
-  float: left;
+
 }
 .output {
   width: 490px;
@@ -130,9 +127,10 @@ input[type=textbox] {
 }
 
 #map {
-  height: 315px;
+  height: 600px;
+  width: 489px;
   box-shadow: 0px 6px 10px 0px rgb(56, 84, 115);
-
+  float:left;
 }
 
 #bike {
