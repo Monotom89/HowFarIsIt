@@ -25,6 +25,8 @@ function initMap()
   map = new google.maps.Map(document.getElementById('map'), mapOptions); //bekommt den Div in der HTMl und Optionen
 
   console.log('Karte steht');
+  console.log('zoomlevel: ', map.getZoom());
+
   addRow("tableDest")
 
 //geocodierungsbutton Origon
@@ -65,6 +67,7 @@ function geocodeAddress(geocoder, resultsMap)
       {
 
         //map zentrieren und marker auf die origin setzen
+
         resultsMap.setCenter(results[0].geometry.location);
         console.log('Map wird gecentert');
         var marker = new google.maps.Marker
@@ -83,27 +86,7 @@ function geocodeAddress(geocoder, resultsMap)
           destinations[k][1] = document.getElementById(k.toString().concat("","2")).value; //dest von id holen
         };
 
-        /*Destinations in Tabellenform ausgeben (zum Test)
-        console.log('Destination werden in Tabellenform ausgegeben');
-        var table ='';
-        table += "<th>ALIAS</th>";
-        table += "<th>longlat</th>";
 
-        Zeilen = destinations.length;
-        Spalten = Object.keys(destinations[0]).length;
-
-        for (i=0; i < Zeilen; i++)
-        {
-          table += '<tr>';
-          for (j=0; j < Spalten; j++)
-          {
-            //table += "<td>" + (i+1) + (j+1) + '</td>';
-            table += "<td>" + destinations[i][j] + "</td>";
-          }
-          table += '</tr>';
-        }
-        document.getElementById("ausgabe").innerHTML += '<table>' + table + '</table>';
-        */
 
         //da .getDistanceMatrix nur latlng objekte nimmt, müssen die nochmal aus der liste rausgetrennt werden.
         console.log('Erstelle LatLng Array für die Distancematrix');
@@ -123,6 +106,11 @@ function geocodeAddress(geocoder, resultsMap)
 
         var bounds = new google.maps.LatLngBounds;
         var service = new google.maps.DistanceMatrixService;
+        markersArray.push(new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location,
+          icon: originIcon,
+          }));
 
         //abfahrtzeit
         var date = new Date();
@@ -151,12 +139,15 @@ function geocodeAddress(geocoder, resultsMap)
               outputDiv.innerHTML = '';
               deleteMarkers(markersArray);
 
-
               var showGeocodedAddressOnMap = function(asDestination) {
                 var icon = asDestination ? destinationIcon : originIcon;
                 return function(results, status) {
                   if (status === google.maps.GeocoderStatus.OK) {
                     map.fitBounds(bounds.extend(results[0].geometry.location));
+                    if (map.getZoom()>12) {
+                      map.setZoom(12);
+                    };
+                    console.log('zoomlevel: ', map.getZoom());
                     markersArray.push(new google.maps.Marker({
                       map: map,
                       position: results[0].geometry.location,
@@ -165,6 +156,7 @@ function geocodeAddress(geocoder, resultsMap)
                   }
                 };
               };
+
 
                 //ergebnisse ausprinten
                   for (var i = 0; i < originList.length; i++) {
@@ -180,9 +172,9 @@ function geocodeAddress(geocoder, resultsMap)
                     }
                   }
                 }
-              }) //TRANSIT
+              }) //TRANSIT ENDE
 
-
+              /*
               //Bike
               console.log('Beginne mit getDistanceMatrix Bike');
               service.getDistanceMatrix({
@@ -284,7 +276,7 @@ function geocodeAddress(geocoder, resultsMap)
                                 }
                               }
                             }
-                          }) //Walking
+                          }) //Walking */
 
 
       }
