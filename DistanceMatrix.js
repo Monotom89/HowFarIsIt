@@ -174,7 +174,7 @@ function geocodeAddress(geocoder, resultsMap)
                 }
               }) //TRANSIT ENDE
 
-              /*
+
               //Bike
               console.log('Beginne mit getDistanceMatrix Bike');
               service.getDistanceMatrix({
@@ -276,7 +276,7 @@ function geocodeAddress(geocoder, resultsMap)
                                 }
                               }
                             }
-                          }) //Walking */
+                          }) //Walking 
 
 
       }
