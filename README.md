@@ -9,16 +9,12 @@ LOG
 
 2017-02-12 HTML Styling
 
+2017-02-14 Finalised Layout
+
 -------------
 
 To Do
 
 - Add car travel time
-- Add animations to input elements
-- Add logo above title
-- Parallax scrolling, banner in the background
 - host site
-- texts
-- Set placeholder attribute to input text
-- show one line when site is loading
 - set higher zoom level when only one destination is defined (add origin pin to markerArray?)
