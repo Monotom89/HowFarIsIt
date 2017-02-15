@@ -17,4 +17,3 @@ To Do
 
 - Add car travel time
 - host site
-- set higher zoom level when only one destination is defined (add origin pin to markerArray?)
