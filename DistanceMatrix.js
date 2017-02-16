@@ -13,7 +13,7 @@ KEIN EXTRA OPTIONS OBJEKT- da kann man google methoden nicht verwenden, weil sie
 var map;
 var RowCounter = 0;
 
-function initMap()
+window.initMap = function()
 {
   console.log('Starte function initMap');
 
@@ -200,6 +200,9 @@ function geocodeAddress(geocoder, resultsMap)
                       return function(results, status) {
                         if (status === google.maps.GeocoderStatus.OK) {
                           map.fitBounds(bounds.extend(results[0].geometry.location));
+                          if (map.getZoom()>12) {
+                            map.setZoom(12);
+                          };
                           markersArray.push(new google.maps.Marker({
                             map: map,
                             position: results[0].geometry.location,
@@ -251,6 +254,9 @@ function geocodeAddress(geocoder, resultsMap)
                             return function(results, status) {
                               if (status === google.maps.GeocoderStatus.OK) {
                                 map.fitBounds(bounds.extend(results[0].geometry.location));
+                                if (map.getZoom()>12) {
+                                  map.setZoom(12);
+                                };
                                 markersArray.push(new google.maps.Marker({
                                   map: map,
                                   position: results[0].geometry.location,
@@ -276,7 +282,7 @@ function geocodeAddress(geocoder, resultsMap)
                                 }
                               }
                             }
-                          }) //Walking 
+                          }) //Walking
 
 
       }
