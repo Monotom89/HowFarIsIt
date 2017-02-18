@@ -23,10 +23,8 @@ LOG
 
 To Do
 
-- add space below footer
-
 ------------
 
 Known Bugs
 
-- site needs to be refreshed. Javascript not loading??
+- site needs to be refreshed
