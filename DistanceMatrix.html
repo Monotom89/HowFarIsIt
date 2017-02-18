@@ -1,34 +1,42 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
+
+<head>
+    <meta charset="utf-8" />
     <title>How Far Is It?</title>
     <link href="DistanceMatrix.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs1cka1ZslT2gQ-Xx7uWSG-uNPWSKiINs&signed_in=true&callback=initMap"
-          async defer></script> <!-- API-Aufruf -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCs1cka1ZslT2gQ-Xx7uWSG-uNPWSKiINs&signed_in=true&callback=initMap" async defer></script>
+    <!-- API-Aufruf -->
 
     <!-- Google Analytics -->
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-32368707-4', 'auto');
-      ga('send', 'pageview');
-
+        ga('create', 'UA-32368707-4', 'auto');
+        ga('send', 'pageview');
     </script>
 
 
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Banner und Logo-->
     <div class="banner">
-      <img src="Arrows.png" id="logo">
-      <div id="banner-content">
-        <h1>How Far Is It?</h1>
-      </div>
+        <img src="Arrows.png" id="logo" alt="Arrows-Logo">
+        <div id="banner-content">
+            <h1>How Far Is It?</h1>
+        </div>
     </div>
 
     </br>
@@ -37,110 +45,125 @@
 
     <div class="contentcontainer">
 
-      <!-- Erklärtext -->
-      <div class="introduction">
-        <p id="introductionText">
-        Du hast eine neue Wohnung im Auge, möchtest ein Haus kaufen oder eine Location für dein neues Büro finden?
-        "How Far Is It" berechnet für dich, wie lange du von einem Ort zu deinen Freunden, zu deinen Eltern, zur Schule, zur Arbeit, zum Zahnarzt
-        oder zum Einkaufen brauchst. Mit den öffentlichen Verkehrsmitteln, mit dem Rad oder zu Fuß.
-        Gib einfach die Start-Adresse, die Ziel-Adressen, sowie die Bezeichnung der Orte ein, zu denen die Wegzeit berechnet werden soll.
-        Mit Klick auf "Neue Zeile" kannst du weitere Ziel-Adressen hinzufügen.
-        </p>
-      </div> <!-- end of introduction -->
-
-      </br>
-
-      <!--Eingabebereich -->
-      <div class="input">
-
-        <table class="OriginTable">
-          <tr class="OriginRow" style="height:9px">
-            <td id="OriginLabel"><p id="OriginLabelText">Start-Adresse</p></td>
-            <td><input id="origin" type="text" value="Muenchen"></td>
-          </tr>
-        </table>
+        <!-- Erklärtext -->
+        <div class="introduction">
+            <p id="introductionText">
+                Du hast eine neue Wohnung im Auge, möchtest ein Haus kaufen oder eine Location für dein neues Büro finden? "How Far Is It" berechnet für dich, wie lange du von einem Ort zu deinen Freunden, zu deinen Eltern, zur Schule, zur Arbeit, zum Zahnarzt oder zum
+                Einkaufen brauchst. Mit den öffentlichen Verkehrsmitteln, mit dem Rad oder zu Fuß. Gib einfach die Start-Adresse, die Ziel-Adressen, sowie die Bezeichnung der Orte ein, zu denen die Wegzeit berechnet werden soll. Mit Klick auf "Neue Zeile"
+                kannst du weitere Ziel-Adressen hinzufügen.
+            </p>
+        </div>
+        <!-- end of introduction -->
 
         </br>
-
-        <div id="eingabeDest">
-          <table id="tableDest">
-            <tr>
-
-            </tr>
-          </table>
+        </br>
 
 
-          <input id="neueZeile" type="button" value="+"> <!-- wenn Knopf gedrückt, neue Zeile erstellen-->
-          </br>
-          </br>
-          </br>
+        <!--Eingabebereich -->
+        <div class="input">
 
+            <table class="OriginTable">
+                <tr class="OriginRow" style="height:9px">
+                    <td id="OriginLabel">
+                        <p id="OriginLabelText">Start-Adresse</p>
+                    </td>
+                    <td><input id="origin" type="text" value="Muenchen"></td>
+                </tr>
+            </table>
 
-        </div> <!-- end of eingabeOrigin -->
-      </div> <!-- end of input -->
-
-
-      <!-- Karte und Ausgabe-->
-      <div class="outputWrapper">
-
-        <!-- Karte -->
-        <div class="map" id="map">
-        </div> <!-- end of map -->
-
-        <!-- Ausgabebereich rechts -->
-        <div class="output">
-
-          <input id="submitDest" type="button" value="Auf gehts!"> <!-- Submit Button -->
-
-          </br>
-          </br>
-
-          <div class="OutputContainer">
-            <h3>Mit den öffentlichen Verkehrsmitteln</h3>
-            <div id="Transit"></div>
             </br>
-          </div>
 
-          </br>
-
-          <div class="OutputContainer">
-            <h3>Mit dem Rad</h3>
-            <div id="Bike"></div>
-            </br>
-          </div>
-
-          </br>
-
-          <div class="OutputContainer">
-            <h3>Mit dem Auto</h3>
-            <div id="Driving"></div>
-            </br>
-          </div>
-
-          </br>
-
-          <div class="OutputContainer">
-            <h3>Zu Fuss</h3>
-            <div id="Walking"></div>
-            </br>
-          </div>
-
-        </div> <!-- end of output -->
-
-      </div> <!-- end of submissionContainer -->
-
-      </br>
-      </br>
-      </br>
-
-      <div class="footer">
-        <a id="footerText" href="http://www.tom-kirchgaessner.de">Tom Kirchgaessner</a>
-      </div>
-
-    </div> <!-- end of contentcontainer -->
+            <div id="eingabeDest">
+                <table id="tableDest">
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
 
 
-  <script defer async type="text/javascript" src="DistanceMatrix.js"></script> <!-- link zur externen JS -->
-  </body>
+                <input id="neueZeile" type="button" value="+">
+                <!-- wenn Knopf gedrückt, neue Zeile erstellen-->
+                </br>
+                </br>
+                </br>
+
+
+            </div>
+            <!-- end of eingabeOrigin -->
+        </div>
+        <!-- end of input -->
+
+
+        <!-- Karte und Ausgabe-->
+        <div class="outputWrapper">
+
+            <!-- Karte -->
+            <div class="map" id="map">
+            </div>
+            <!-- end of map -->
+
+            <!-- Ausgabebereich rechts -->
+            <div class="output">
+
+                <input id="submitDest" type="button" value="Auf gehts!">
+                <!-- Submit Button -->
+
+                </br>
+                </br>
+
+                <div class="OutputContainer">
+                    <h3>Mit den öffentlichen Verkehrsmitteln</h3>
+                    <div id="Transit"></div>
+                    </br>
+                </div>
+
+                </br>
+
+                <div class="OutputContainer">
+                    <h3>Mit dem Rad</h3>
+                    <div id="Bike"></div>
+                    </br>
+                </div>
+
+                </br>
+
+                <div class="OutputContainer">
+                    <h3>Mit dem Auto</h3>
+                    <div id="Driving"></div>
+                    </br>
+                </div>
+
+                </br>
+
+                <div class="OutputContainer">
+                    <h3>Zu Fuss</h3>
+                    <div id="Walking"></div>
+                    </br>
+                </div>
+
+            </div>
+            <!-- end of output -->
+
+        </div>
+        <!-- end of submissionContainer -->
+
+        </br>
+        </br>
+        </br>
+
+        <div class="footer">
+            <a id="footerText" href="http://www.tom-kirchgaessner.de">Tom Kirchgaessner</a>
+        </div>
+        </br>
+        </br>
+
+    </div>
+    <!-- end of contentcontainer -->
+
+
+    <script defer async type="text/javascript" src="DistanceMatrix.js"></script>
+    <!-- link zur externen JS -->
+</body>
 
 </html>

@@ -15,18 +15,18 @@ LOG
 
 2017-02-16 Site working and online
 
+2017-02-18 Bugfixes and cleaned code
+
+
 
 -------------
 
 To Do
 
-- Add car travel time
 - add space below footer
 
 ------------
 
 Known Bugs
 
-- Old Marker is not being deleted when adress is changed
-- bounds is not set correctly when only one destination is given
 - site needs to be refreshed. Javascript not loading??
